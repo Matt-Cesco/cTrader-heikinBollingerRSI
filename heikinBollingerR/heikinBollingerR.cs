@@ -22,6 +22,8 @@ namespace cAlgo.Robots
         [Parameter("RSI Period", DefaultValue = 11)]
         public int RsiPeriod { get; set; }
 
+        /* This method performs an action of your choosing 
+        when a cBot is launched. */
         protected override void OnStart()
         {
             // Initialize the indicators
@@ -53,7 +55,9 @@ namespace cAlgo.Robots
             }
         }
 
-        protected override void OnBar()
+        /* This method performs an action of your choosing
+        every tick. */
+        protected override void OnTick()
         {
             int index = Bars.ClosePrices.Count - 1;
 
@@ -73,7 +77,7 @@ namespace cAlgo.Robots
             if (haCloseValue > haOpenValue && haOpenValue == haCloseValue && haCloseValue > upperBand && currentRsi > 60)
             {
                 ExecuteMarketOrder(TradeType.Buy, SymbolName, Symbol.VolumeInUnitsMin, "HeikinAshiBollingerRsiBot", null, null, null, "Buy Signal");
-                Chart.DrawIcon("Buy_" + Time, Chart.LastBar.OpenTime, Chart.LastBar.Low, ChartIconType.UpArrow, Color.Green);
+                Chart.DrawIcon("Buy_" + Time, ChartIconType.UpArrow , Color.Green);
             }
 
             // Check sell conditions
