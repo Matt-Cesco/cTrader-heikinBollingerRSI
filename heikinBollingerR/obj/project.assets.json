@@ -82,11 +82,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\matte\\Documents\\cAlgo\\Sources\\Robots\\heikinBollingerR\\heikinBollingerR\\heikinBollingerR.csproj",
+      "projectUniqueName": "C:\\Users\\matte\\Desktop\\Trading\\Trading Apps\\cTrader-heikinBollingerRSI\\heikinBollingerR\\heikinBollingerR.csproj",
       "projectName": "heikinBollingerR",
-      "projectPath": "C:\\Users\\matte\\Documents\\cAlgo\\Sources\\Robots\\heikinBollingerR\\heikinBollingerR\\heikinBollingerR.csproj",
+      "projectPath": "C:\\Users\\matte\\Desktop\\Trading\\Trading Apps\\cTrader-heikinBollingerRSI\\heikinBollingerR\\heikinBollingerR.csproj",
       "packagesPath": "C:\\Users\\matte\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\matte\\Documents\\cAlgo\\Sources\\Robots\\heikinBollingerR\\heikinBollingerR\\obj\\",
+      "outputPath": "C:\\Users\\matte\\Desktop\\Trading\\Trading Apps\\cTrader-heikinBollingerRSI\\heikinBollingerR\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\matte\\AppData\\Roaming\\NuGet\\NuGet.Config"

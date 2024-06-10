@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("heikinBollingerR")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d8e8fe1d8b930632b07b35a6b14457059501e9ff")]
 [assembly: System.Reflection.AssemblyProductAttribute("heikinBollingerR")]
 [assembly: System.Reflection.AssemblyTitleAttribute("heikinBollingerR")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

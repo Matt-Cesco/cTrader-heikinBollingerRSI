@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "b/bmqc3hUiQ=",
+  "dgSpecHash": "CKzVIuID3kI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\matte\\Documents\\cAlgo\\Sources\\Robots\\heikinBollingerR\\heikinBollingerR\\heikinBollingerR.csproj",
+  "projectFilePath": "C:\\Users\\matte\\Desktop\\Trading\\Trading Apps\\cTrader-heikinBollingerRSI\\heikinBollingerR\\heikinBollingerR.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\matte\\.nuget\\packages\\ctrader.automate\\1.0.9\\ctrader.automate.1.0.9.nupkg.sha512",
     "C:\\Users\\matte\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.31\\microsoft.netcore.app.ref.6.0.31.nupkg.sha512",

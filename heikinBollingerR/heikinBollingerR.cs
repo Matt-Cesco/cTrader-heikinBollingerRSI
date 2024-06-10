@@ -75,18 +75,27 @@ namespace cAlgo.Robots
             double rollingMean = bollingerBands.Main.LastValue;
             double currentRsi = rsi.Result.LastValue;
 
-            // Check buy conditions
-            if (haCloseValue > haOpenValue && haOpenValue == haCloseValue && haCloseValue > upperBand && currentRsi > 60)
-            {
-                ExecuteMarketOrder(TradeType.Buy, SymbolName, Symbol.VolumeInUnitsMin, "HeikinAshiBollingerRsiBot", null, null, null);
-                Chart.DrawIcon("Buy_" + Time, ChartIconType.UpArrow, Bars.OpenTimes.LastValue, Bars.LowPrices.LastValue, Color.Green);
-            }
+            // Check if there are any open positions
+            bool hasOpenPositions = Positions.Count > 0;
 
-            // Check sell conditions
-            if (haLowValue < rollingMean && currentRsi < 60)
+            if (!hasOpenPositions)
             {
-                ExecuteMarketOrder(TradeType.Sell, SymbolName, Symbol.VolumeInUnitsMin, "HeikinAshiBollingerRsiBot", null, null, null);
-                Chart.DrawIcon("Sell_" + Time, ChartIconType.DownArrow, Bars.OpenTimes.LastValue, Bars.HighPrices.LastValue, Color.Red);
+                // Check buy conditions
+                if (haCloseValue > haOpenValue && haOpenValue == haCloseValue && haCloseValue > upperBand && currentRsi > 60)
+                {
+                    ExecuteMarketOrder(TradeType.Buy, SymbolName, Symbol.VolumeInUnitsMin, "HeikinAshiBollingerRsiBot", null, null, null);
+                    Chart.DrawIcon("Buy_" + Time, ChartIconType.UpArrow, Bars.OpenTimes.LastValue, Bars.LowPrices.LastValue, Color.Green);
+                }
+            }
+            else
+            {
+                // Check sell conditions only if there are open buy positions
+                var buyPositions = Positions.FindAll("HeikinAshiBollingerRsiBot", SymbolName, TradeType.Buy);
+                if (buyPositions.Length > 0 && haLowValue < rollingMean && currentRsi < 60)
+                {
+                    ExecuteMarketOrder(TradeType.Sell, SymbolName, Symbol.VolumeInUnitsMin, "HeikinAshiBollingerRsiBot", null, null, null);
+                    Chart.DrawIcon("Sell_" + Time, ChartIconType.DownArrow, Bars.OpenTimes.LastValue, Bars.HighPrices.LastValue, Color.Red);
+                }
             }
         }
 
