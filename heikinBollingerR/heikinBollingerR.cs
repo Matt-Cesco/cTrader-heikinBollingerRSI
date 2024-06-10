@@ -83,7 +83,10 @@ namespace cAlgo.Robots
                 // Check buy conditions
                 if (haCloseValue > haOpenValue && haOpenValue == haCloseValue && haCloseValue > upperBand && currentRsi > 60)
                 {
-                    ExecuteMarketOrder(TradeType.Buy, SymbolName, Symbol.VolumeInUnitsMin, "HeikinAshiBollingerRsiBot", null, null, null);
+                    double amountToInvest = Account.Balance * 0.50;
+                    double volumeInUnits = amountToInvest / Symbol.Bid;
+
+                    ExecuteMarketOrder(TradeType.Buy, SymbolName, volumeInUnits, "HeikinAshiBollingerRsiBot", null, null, null);
                     Chart.DrawIcon("Buy_" + Time, ChartIconType.UpArrow, Bars.OpenTimes.LastValue, Bars.LowPrices.LastValue, Color.Green);
                 }
             }
@@ -93,7 +96,7 @@ namespace cAlgo.Robots
                 var buyPositions = Positions.FindAll("HeikinAshiBollingerRsiBot", SymbolName, TradeType.Buy);
                 if (buyPositions.Length > 0 && haLowValue < rollingMean && currentRsi < 60)
                 {
-                    ExecuteMarketOrder(TradeType.Sell, SymbolName, Symbol.VolumeInUnitsMin, "HeikinAshiBollingerRsiBot", null, null, null);
+                    ExecuteMarketOrder(TradeType.Sell, SymbolName, buyPositions[0].VolumeInUnits, "HeikinAshiBollingerRsiBot", null, null, null);
                     Chart.DrawIcon("Sell_" + Time, ChartIconType.DownArrow, Bars.OpenTimes.LastValue, Bars.HighPrices.LastValue, Color.Red);
                 }
             }
